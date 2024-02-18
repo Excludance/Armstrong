@@ -1,0 +1,77 @@
+
+// + ak^n = N, где ai – это цифры числа N, n – количество цифр числа N, k – количество цифр числа N.
+/* Пишите чистый код
+
+Разделяйте задачи на модули
+
+Пишите короткие блоки кода
+
+Пишите простые блоки кода
+
+Не повторяйте один и тот же код
+
+Избегайте тесных связей между элементами архитектуры
+
+Следите за размером базы кода
+
+Пишите коментарии */
+// Проверить, является ли натуральное число n числом Армстронга.
+// Если нет - то найти ближайшее число Армстронга
+//1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474, 54 748,
+//92 727, 93 084, 548 834, 1 741 725, 4 210 818, 9 800 817, 9 926 315, 24 678 050,
+//24 678 051, 88 593 477, 146 511 208, 472 335 975, 534 494 836, 912 985 153, 4 679 307 774.
+
+using Armstrong;
+using System;
+int Inkrement = 0;
+int Dekrement = 0;
+double numberI = 0;
+double numberD = 0;
+double number = 0;
+bool i = true;
+Console.WriteLine("Введите число");
+int InterNumber = Convert.ToInt32(Console.ReadLine());
+
+
+try
+{
+    FunctionArm A = new FunctionArm();
+    number = A.FormulaArm(InterNumber);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+
+}
+
+
+while (i == true)
+{
+    FunctionArm B = new FunctionArm();
+   
+    numberI = B.FormulaArm(InterNumber + Inkrement);
+    numberD = B.FormulaArm(InterNumber - Dekrement);
+
+    if (numberI == InterNumber + Inkrement)
+    {
+        Console.WriteLine($"Ближайшее число к {InterNumber} это: {numberI}  ");
+        Console.ReadKey();
+        i = false;
+        continue;
+    }
+
+    else if (numberD == InterNumber - Dekrement)
+    {
+        Console.WriteLine($"Ближайшее число к {InterNumber} это: {numberD}  "); 
+        Console.ReadKey();
+        i = false;
+        continue;
+    }
+
+    else
+    {
+        Inkrement++;
+        Dekrement++;
+        continue;
+    }
+}
