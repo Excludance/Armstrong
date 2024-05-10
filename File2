@@ -1,0 +1,47 @@
+namespace Armstrong
+{
+    public class FunctionArm
+    {
+        public double _arm { get; set; }
+        
+        public double FormulaArm(int number)
+        {
+            if (number < 0 || number > 9999999)
+                throw new Exception("Число задано некорректно. Диапазон: 0 : 9999999");
+
+            else 
+            {
+                if (number > 10 && number < 100)
+                {
+                    _arm = Math.Pow(number % 10, 2) + Math.Pow(number / 10, 2);
+                }
+                if (number > 100 && number < 1000)
+                {
+                    _arm = Math.Pow((number % 100) / 10, 3) + Math.Pow(number % 10, 3) + Math.Pow(number / 100, 3);
+                }
+                if (number > 1000 && number < 10000)
+                {
+                    _arm = Math.Pow(number % 10, 4) + Math.Pow((number / 100) % 10, 4) + Math.Pow((number / 10) % 10, 4) + Math.Pow(number / 1000, 4);
+                }
+                if (number > 10000 && number < 100000)
+                {
+                    _arm = Math.Pow(number % 10, 5) + Math.Pow((number % 100) / 10, 5) + Math.Pow((number % 1000) / 100, 5) + Math.Pow((number % 10000) / 1000, 5) + Math.Pow(number / 10000, 5);
+                }
+                if (number > 100000 && number < 1000000)
+                {
+                    _arm = Math.Pow(number % 10, 6) + Math.Pow((number % 100) / 10, 6) + Math.Pow((number % 1000) / 100, 6) + Math.Pow((number % 10000) / 1000, 6) + Math.Pow((number % 100000) / 10000, 6) + Math.Pow(number / 100000, 6);
+                }
+                if (number > 1000000 && number < 9999999)
+                {
+                    _arm = Math.Pow(number % 10, 7) + Math.Pow((number % 100) / 10, 7) + Math.Pow((number % 1000) / 100, 7) + Math.Pow((number % 10000) / 1000, 7) + Math.Pow((number % 100000) / 10000, 7) + Math.Pow((number % 1000000) / 100000, 7) + Math.Pow(number / 1000000, 7);
+                }
+                if (number < 10 && number > 0)
+                {
+                    _arm = number;
+                }
+                return _arm;
+            }
+        }
+    }
+    
+}
